@@ -85,9 +85,21 @@ class HomeController < ApplicationController
 
     end
 
+    @pw = pw
+    if(@pw[0]['queueType'] == "RANKED_SOLO_5x5")
+
+      @pw[0]['queueType'] = "Ranked solo"
+      @pw = User.new(@pw[0]['summonerName'],@pw[0]['queueType'],@pw[0]['tier'],@pw[0]['rank'],@pw[0]['leaguePoints'],@pw[0]['wins'],@pw[0]['losses'])
+
+    else
+      @pw[1]['queueType'] = "Ranked solo"
+      @pw = User.new(@pw[1]['summonerName'],@pw[1]['queueType'],@pw[1]['tier'],@pw[1]['rank'],@pw[1]['leaguePoints'],@pw[1]['wins'],@pw[1]['losses'])
+
+    end
+
     @stoffeUser = User.new(@stoffe[0]['summonerName'],@stoffe[0]['queueType'],@stoffe[0]['tier'],@stoffe[0]['rank'],@stoffe[0]['leaguePoints'],@stoffe[0]['wins'],@stoffe[0]['losses'])
 
-    @Users = [@ralleUser,@branniz,@stoffeUser,@santa,@botBastian,@affe,@major]
+    @Users = [@ralleUser,@branniz,@stoffeUser,@santa,@botBastian,@affe,@major,@pw]
     @Users = @Users.sort
   end
 
@@ -130,6 +142,12 @@ class HomeController < ApplicationController
 
   def get_major
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/D55Soz14oJCZZ3S_f5IiE_p1j4TETyy3MDseb0WUeoukAWI?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
+    return "monkey" if response.status != 200
+    JSON.parse(response.body)
+  end
+
+  def get_pw
+    response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/x_TYVH0EFejTuQJYIzjiqsBL5Srl6q2e0qUTht1I0oURazE?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
