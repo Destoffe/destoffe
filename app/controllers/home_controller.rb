@@ -92,9 +92,13 @@ class HomeController < ApplicationController
       @pw = User.new(@pw[0]['summonerName'],@pw[0]['queueType'],@pw[0]['tier'],@pw[0]['rank'],@pw[0]['leaguePoints'],@pw[0]['wins'],@pw[0]['losses'])
 
     else
-      @pw[1]['queueType'] = "Ranked solo"
-      @pw = User.new(@pw[1]['summonerName'],@pw[1]['queueType'],@pw[1]['tier'],@pw[1]['rank'],@pw[1]['leaguePoints'],@pw[1]['wins'],@pw[1]['losses'])
+      if(@pw[1] == nil)
+        @pw = User.new(@pw[0]['summonerName'],@pw[0]['queueType'],@pw[0]['tier'],@pw[0]['rank'],@pw[0]['leaguePoints'],@pw[0]['wins'],@pw[0]['losses'])
+      else
+        @pw[1]['queueType'] = "Ranked solo"
+        @pw = User.new(@pw[1]['summonerName'],@pw[1]['queueType'],@pw[1]['tier'],@pw[1]['rank'],@pw[1]['leaguePoints'],@pw[1]['wins'],@pw[1]['losses'])
 
+      end
     end
 
     @stoffeUser = User.new(@stoffe[0]['summonerName'],@stoffe[0]['queueType'],@stoffe[0]['tier'],@stoffe[0]['rank'],@stoffe[0]['leaguePoints'],@stoffe[0]['wins'],@stoffe[0]['losses'])
