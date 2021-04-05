@@ -85,7 +85,7 @@ class HomeController < ApplicationController
 
     end
 
-    @pw = pw
+    @pw = get_pw
     if(@pw[0]['queueType'] == "RANKED_SOLO_5x5")
 
       @pw[0]['queueType'] = "Ranked solo"
