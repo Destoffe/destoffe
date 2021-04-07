@@ -1,0 +1,28 @@
+
+
+<br/>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Book title</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+    <% #if book.user == current_user %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.score %></td>
+        <td><%= link_to 'Show', book %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New book', new_book_path %>
+

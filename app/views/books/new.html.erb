@@ -1,0 +1,34 @@
+<h1>New Book</h1>
+<%= form_with model: @book do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @book.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% @book.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :score %><br>
+    <%= form.number_field :score %><br>
+    <% @book.errors.full_messages_for(:score).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :image %><br>
+    <%= form.text_field :image %><br>
+    <% @book.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
