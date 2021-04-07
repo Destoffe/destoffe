@@ -4,7 +4,6 @@
     <%= tabs_tag open_tabs: {class:'nav nav-tabs'} do |tab| %>
       <%= tab.solo      'Solo/duo', league_path, :class =>'nav-link' %>
       <%= tab.flex 'Flex', league_flex_path, :class =>'nav-link active' %>
-      <%= tab.tft   'TFT', league_tft_path, :class =>'nav-link' %>
     <% end %>
     <table class="table">
       <thead>
@@ -24,11 +23,7 @@
           <tr>
             <th scope="row"><%= index +1 %></th>
             <td>  <%= flex_users.summonerName %>   </td>
-            <% if(flex_users.queueType == "RANKED_FLEX_SR") %>
-              <td>  <%= flex_users.tier.to_s + " " + flex_users.rank.to_s + " (flex)"%>   </td>
-            <% else%>
-              <td>  <%= flex_users.tier.to_s + " " + flex_users.rank.to_s%>   </td>
-            <% end %>
+            <td>  <%= flex_users.tier.to_s + " " + flex_users.rank.to_s%>   </td>
             <td>  <%= flex_users.leaguePoints %>   </td>
             <td>  <%= flex_users.wins %>   </td>
             <td>  <%= flex_users.losses %>   </td>

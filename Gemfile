@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'rails-letsencrypt'
 gem 'excon'
 gem "tabs_on_rails"
+gem 'popper_js', '~> 2.8.6'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
