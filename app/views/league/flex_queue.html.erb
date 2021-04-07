@@ -1,0 +1,104 @@
+<div class="container text-center">
+  <div class="row">
+    <!-- Nav tabs -->
+    <%= tabs_tag open_tabs: {class:'nav nav-tabs'} do |tab| %>
+      <%= tab.solo      'Solo/duo', league_path, :class =>'nav-link active' %>
+      <%= tab.flex 'Flex', league_flex_path, :class =>'nav-link' %>
+      <%= tab.tft   'TFT', league_tft_path, :class =>'nav-link' %>
+    <% end %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Summoner</th>
+          <th scope="col">Tier</th>
+          <th scope="col">LP</th>
+          <th scope="col">Wins</th>
+          <th scope="col">Losses</th>
+          <th scope="col">Winrate</th>
+          <th scope="col">Elo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @Flexex.each_with_index do |flex_users,index| %>
+          <tr>
+            <th scope="row"><%= index +1 %></th>
+            <td>  <%= flex_users.summonerName %>   </td>
+            <% if(flex_users.queueType == "RANKED_FLEX_SR") %>
+              <td>  <%= flex_users.tier.to_s + " " + flex_users.rank.to_s + " (flex)"%>   </td>
+            <% else%>
+              <td>  <%= flex_users.tier.to_s + " " + flex_users.rank.to_s%>   </td>
+            <% end %>
+            <td>  <%= flex_users.leaguePoints %>   </td>
+            <td>  <%= flex_users.wins %>   </td>
+            <td>  <%= flex_users.losses %>   </td>
+            <td>  <%= flex_users.winrate.to_s + "%" %>   </td>
+            <td>  <%= flex_users.eloScore %>   </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<br>
+<style>
+  body {
+    background-color: #06061f;
+    background: url(/bg.png);
+  }
+  
+  .table {
+    background: rgba(6,6,12,0.5);;
+  }
+  
+  thead tr th {
+    color: #ffffff;
+  }
+  
+  tbody tr th {
+    color: #3a3a3a;
+  }
+  
+  tbody tr {
+    color: #adadad;
+  }
+  
+  tr {
+    border-color: #111115;
+  }
+  
+  thead {
+    border-color: #111115;
+  }
+  
+  h3 a{
+    color: #919191;
+    text-decoration: none;
+  
+  }
+  h3 a:hover{
+    color: #bdbcbc;
+  }
+  
+  .highlighted a{
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  .highlighted a:hover{
+    color: #ffffff;
+  }
+  
+  .navbar {
+    background: #0f0c2a !important;
+  }
+  
+  body > div nav > a{
+    color: #fff !important;
+  }
+  
+  .navbar-brand {
+    padding-right: 50px;
+  }
+</style>
