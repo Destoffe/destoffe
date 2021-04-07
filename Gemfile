@@ -21,6 +21,8 @@ gem 'rails-letsencrypt'
 gem 'excon'
 gem "tabs_on_rails"
 gem 'popper_js', '~> 2.8.6'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'bootsnap', '>= 1.4.4', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

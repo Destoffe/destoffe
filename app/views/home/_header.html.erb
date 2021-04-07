@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <%= link_to 'Destoffe',root_path, class:"navbar-brand"%>
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,6 +14,39 @@
             <li> <%= link_to "Flex Queue",league_flex_path, class:"dropdown-item"%></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Books
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><%= link_to "Show books",books_path, class:"dropdown-item"%></li>
+            <%  if user_signed_in? %>
+              <li> <%= link_to "Create book review",new_book_path, class:"dropdown-item"%></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <%  if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Edit Profile",edit_user_registration_path, class:"nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= button_to "Sign out",destroy_user_session_path, method: :delete, class:"nav-link"%>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign up",new_user_registration_path, class:"nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign in",new_user_session_path, class:"nav-link"%>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -26,9 +58,9 @@
   }
   .dropdown-submenu {
     position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
+  }
+  
+  .dropdown-submenu>.dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: -6px;
@@ -36,13 +68,13 @@
     -webkit-border-radius: 0 6px 6px 6px;
     -moz-border-radius: 0 6px 6px;
     border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
+  }
+  
+  .dropdown-submenu:hover>.dropdown-menu {
     display: block;
-}
-
-.dropdown-submenu>a:after {
+  }
+  
+  .dropdown-submenu>a:after {
     display: block;
     content: " ";
     float: right;
@@ -54,11 +86,11 @@
     border-left-color: #ccc;
     margin-top: 5px;
     margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
+  }
+  
+  .dropdown-submenu:hover>a:after {
     border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
+  }
+  
+  .dropdown-submenu.pull-left {
 </style>
