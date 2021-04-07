@@ -381,50 +381,49 @@ class LeagueController < ApplicationController
   end
 
 
-  private
-  def get_stoffe
+  def get_stoffeTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/FK7VJFhgGMkvJg0S4B9Kwk6WGbXvxr0CUXkv4X1nGE0SRqA?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_ralle
+  def get_ralleTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/a-oHYan1zA6eQuw-GIypf3dY3h9YnWsSYkfS7wf94-2hHKs?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_branniz
+  def get_brannizTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/au5MX8JZ6tXSg8gzP7V9CJauhZvpH0CyxYptfuu8M0RROyk?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_santa
+  def get_santaTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/aqy7Q-fJwXJwZmZQTxbmAvVZtEoj4CBb0pSAqiCfB-ibrnU?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_botBastian
+  def get_botBastianTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/42QuZAsnMb6HTFIrR0yOvE9UvgBerdAjSG8rcr5KRmMYNaw?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_affe
+  def get_affeTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/dkpivkrhpOOH_Gr59IqV4qcbIT97rz2nwq_n9-WxUuIe8Eg?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_major
+  def get_majorTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/D55Soz14oJCZZ3S_f5IiE_p1j4TETyy3MDseb0WUeoukAWI?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)
   end
 
-  def get_pw
+  def get_pwTFT
     response = Excon.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/x_TYVH0EFejTuQJYIzjiqsBL5Srl6q2e0qUTht1I0oURazE?api_key=RGAPI-0051ec13-b630-457b-aad2-95de8ccf5770")
     return "monkey" if response.status != 200
     JSON.parse(response.body)

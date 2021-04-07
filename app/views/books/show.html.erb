@@ -4,3 +4,6 @@
 
 <p><%= @book.score %></p>
 <p><%= @book.image %></p>
+
+  <%= link_to 'Edit', edit_book_path(@book), class:"btn btn-secondary"%>
+<%= link_to 'Back', books_path, class:"btn btn-dark"%>
